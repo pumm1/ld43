@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 	private CharacterMovement characterMovement;
+	private LimbDropper limbDropper;
 	
 	void Awake ()
 	{
 		Cursor.visible = false;
 		
 		characterMovement = GetComponent<CharacterMovement>();
+		limbDropper = GetComponent<LimbDropper>();
 	}
 	
 	void Update ()
@@ -24,6 +26,19 @@ public class PlayerController : MonoBehaviour
 		{
 			characterMovement.Jump();
 		}
+
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			limbDropper.dropHead();
+		}
+		if (Input.GetKeyDown(KeyCode.G))
+		{
+			limbDropper.dropHand();
+		}		
+		if (Input.GetKeyDown(KeyCode.H))
+		{
+			limbDropper.dropLeg();
+		}		
 	}
 
 	void FixedUpdate()
