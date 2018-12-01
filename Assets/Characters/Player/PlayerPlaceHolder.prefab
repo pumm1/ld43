@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33063660947664378}
   - component: {fileID: 23970148744395506}
   - component: {fileID: 136522855253439258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33185626653103920}
   - component: {fileID: 23726742149063796}
   - component: {fileID: 136942570805946730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33782800017937066}
   - component: {fileID: 23592882399842586}
   - component: {fileID: 136666293609265928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138386738816974}
   - component: {fileID: 58448718148807576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33445161309706744}
   - component: {fileID: 23833769875193520}
   - component: {fileID: 135584635786222412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4074338873530434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 33787667253837324}
   - component: {fileID: 23794204194197930}
   - component: {fileID: 136809636645751308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 33808444762888536}
   - component: {fileID: 23562320427009632}
   - component: {fileID: 136546927977723098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4604893150619302}
   - component: {fileID: 33534566960756818}
   - component: {fileID: 23018193998735970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4205411778458836}
   - component: {fileID: 33638177544662186}
   - component: {fileID: 23290837869402710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4679219859572046}
   - component: {fileID: 33538757789405028}
   - component: {fileID: 23296865835898702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,9 +213,9 @@ GameObject:
   - component: {fileID: 70842105851343572}
   - component: {fileID: 114113036479996402}
   - component: {fileID: 114363910645382254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerPlaceHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 365
   maxSpeed: 5
-  jumpForce: 1000
+  jumpForce: 350
   brakeForce: 10
   groundCheck: {fileID: 4074338873530434}
   grounded: 0
