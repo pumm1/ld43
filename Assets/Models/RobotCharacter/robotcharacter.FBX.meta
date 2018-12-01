@@ -17,7 +17,7 @@ ModelImporter:
     400008: robot_leg_right
     400010: robot_torso
     400012: //RootNode
-    2100000: 'Material #25'
+    2100000: robot
     2300000: robot_hand_left
     2300002: robot_hand_right
     2300004: robot_head
@@ -31,12 +31,17 @@ ModelImporter:
     3300008: robot_leg_right
     3300010: robot_torso
     4300000: robot_head
-    4300002: robot_hand_right
-    4300004: robot_hand_left
-    4300006: robot_torso
-    4300008: robot_leg_right
-    4300010: robot_leg_left
-  externalObjects: {}
+    4300002: robot_torso
+    4300004: robot_leg_right
+    4300006: robot_hand_right
+    4300008: robot_leg_left
+    4300010: robot_hand_left
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robot
+    second: {fileID: 2100000, guid: 91601c6c92d0b0946a39426fa508b78f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
