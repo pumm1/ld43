@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour {
 	public float turningSpeed = 15;
 	
 	public bool grounded = false;
-	private Animator anim;
+	private Animator animator;
 	private Rigidbody2D rb2d;
 
 	public float horizontalMovement;
@@ -55,8 +55,9 @@ public class CharacterMovement : MonoBehaviour {
 	
 	void Awake ()
 	{
-		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
+		var animators = GetComponentsInChildren<Animator>();
+		animator = animators[0];
 	}
 	
 	void FixedUpdate()
@@ -96,6 +97,8 @@ public class CharacterMovement : MonoBehaviour {
 			rb2d.AddForce(new Vector2(0f, jumpForce));
 			jump = false;
 		}
+
+		animator.speed = Mathf.Abs(rb2d.velocity.x)/5f;
 	}
 
 	private bool flippingRight;

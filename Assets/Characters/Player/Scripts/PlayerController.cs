@@ -66,9 +66,16 @@ public class PlayerController : MonoBehaviour
 		{
 			h += 1.0f;
 		}
+		if (
+			Input.GetKey(KeyCode.S) || 
+			Input.GetKey(KeyCode.DownArrow)
+		)
+		{
+			h *= 0.5f;
+		}
 
 		var shouldPlayWalkAnim = Mathf.Abs(h) > Mathf.Epsilon;	                     
-		robotAnimator.SetBool("shouldWalk", shouldPlayWalkAnim);                 
+		//robotAnimator.SetBool("shouldWalk", shouldPlayWalkAnim);                 
 		
 		characterMovement.horizontalMovement = h;
 		
