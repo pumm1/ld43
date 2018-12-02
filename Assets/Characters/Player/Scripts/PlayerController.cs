@@ -1,11 +1,17 @@
 ﻿
+using Boo.Lang;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+	public GameObject robot;
+	
 	private CharacterMovement characterMovement;
 	private LimbDropper limbDropper;
+
+	private Animator robotAnimator;
 	
 	void Awake ()
 	{
@@ -13,13 +19,14 @@ public class PlayerController : MonoBehaviour
 		
 		characterMovement = GetComponent<CharacterMovement>();
 		limbDropper = GetComponent<LimbDropper>();
+		robotAnimator = robot.GetComponent<Animator>();
 	}
 	
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
-			SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));			
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);			
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -60,6 +67,9 @@ public class PlayerController : MonoBehaviour
 			h += 1.0f;
 		}
 
+		var shouldPlayWalkAnim = Mathf.Abs(h) > Mathf.Epsilon;	                     
+		robotAnimator.SetBool("shouldWalk", shouldPlayWalkAnim);                 
+		
 		characterMovement.horizontalMovement = h;
 		
 		if (Mathf.Abs(h) < Mathf.Epsilon) 
