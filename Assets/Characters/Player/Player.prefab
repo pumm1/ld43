@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114647386795975674}
   - component: {fileID: 70713909305520030}
   - component: {fileID: 70059404475199670}
+  - component: {fileID: 70165595432705904}
   - component: {fileID: 70494183214755100}
   m_Layer: 0
   m_Name: Player
@@ -873,6 +874,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.0037565}
   m_Size: {x: 0.46465212, y: 0.46465212}
   m_Direction: 0
+--- !u!70 &70165595432705904
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087153862321216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0025627017, y: 0.7021831}
+  m_Size: {x: 0.47437298, y: 1.0615051}
+  m_Direction: 0
 --- !u!70 &70494183214755100
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -964,6 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headCollider: {fileID: 70713909305520030}
+  handsCollider: {fileID: 70165595432705904}
   legsCollider: {fileID: 70494183214755100}
   headToDestroy: {fileID: 1165342994342116}
   leftHandToDestroy: {fileID: 1889466165976794}

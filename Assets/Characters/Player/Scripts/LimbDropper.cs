@@ -7,6 +7,7 @@ using UnityEngine;
 public class LimbDropper : MonoBehaviour
 {
 	public Collider2D headCollider;
+	public Collider2D handsCollider;
 	public Collider2D legsCollider;
 	
 	public GameObject headToDestroy;
@@ -42,7 +43,8 @@ public class LimbDropper : MonoBehaviour
 		else if (rightHandToDestroy)
 		{
 			dropLimb(rightHandToDestroy, rightHandToInstantiate);
-			rightHandToDestroy = null;			
+			rightHandToDestroy = null;
+			handsCollider.enabled = false;
 		}
 	}
 	
