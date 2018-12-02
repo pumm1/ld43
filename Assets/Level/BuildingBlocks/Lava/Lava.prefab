@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33003992472232346}
   - component: {fileID: 23563202038993428}
   - component: {fileID: 61601609237557612}
+  - component: {fileID: 114997428503773338}
   m_Layer: 9
   m_Name: Lava
   m_TagString: Ground
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421065892192588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: -10, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,3 +110,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 64, y: 1.0000104}
   m_EdgeRadius: 0
+--- !u!114 &114997428503773338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421065892192588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14f20924ba0cea44bcc336ef80ede65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
