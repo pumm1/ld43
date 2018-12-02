@@ -19,8 +19,8 @@ public class CameraMovement : MonoBehaviour {
 	{
 		var targetCameraPosition = new Vector3(
 			followedRigidBody.position.x + followedRigidBody.velocity.x*2f, 
-			followedRigidBody.position.y + followedRigidBody.velocity.y*2f + 4f, 
-			- Mathf.Abs(followedRigidBody.velocity.x + followedRigidBody.velocity.y) - 10f );
+			followedRigidBody.position.y + 4f, 
+			- Mathf.Abs(followedRigidBody.velocity.x) - 10f );
 		
 		var currentCameraPosition = camera.transform.position;
 		camera.transform.position += (targetCameraPosition - currentCameraPosition) * Time.deltaTime;

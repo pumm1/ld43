@@ -1,15 +1,17 @@
 ﻿using System;
+using Boo.Lang;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour {
 	private bool facingRight = true;
 	private bool jump = false;
 
-	public float moveForce = 365f;
-	public float maxSpeed = 5f;
-	public float jumpForce = 1000f;
+	public float moveForce = 50f;
+	public float jumpForce = 200f;
 	public float brakeForce = 10f;
-	public Transform groundCheck;
+	public Transform groundCheck1;
+	public Transform groundCheck2;
+	public float turningSpeed = 15;
 	
 	public bool grounded = false;
 	private Animator anim;
@@ -19,9 +21,7 @@ public class CharacterMovement : MonoBehaviour {
 	
 	public bool Jump()
 	{
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-		
-		if (grounded) {
+		if (IsGrounded()) {
 			jump = true;
 			return true;
 		}
@@ -30,9 +30,8 @@ public class CharacterMovement : MonoBehaviour {
 
 	public void Brake()
 	{
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-		
-		//if (grounded)
+	
+		//if (IsGrounded())
 		{
 			if (Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon)
 			{
@@ -62,16 +61,31 @@ public class CharacterMovement : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-		if (horizontalMovement * rb2d.velocity.x < maxSpeed)
-			rb2d.AddForce(Vector2.right * horizontalMovement * moveForce);
-
-		if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
+		if (currentAngle < targetAngle)
 		{
-			rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+			currentAngle += turningSpeed;
 		}
+		if (currentAngle > targetAngle)
+		{
+			currentAngle -= turningSpeed;
+			
+		}
+
+		RotateToAngle(currentAngle);
 		
+		rb2d.AddForce(new Vector2(horizontalMovement * moveForce, 0f));
+		
+		if (IsGrounded())
+		{
+			rb2d.AddForce(new Vector2(0f, 80f));
+
+		}
+
 		if (horizontalMovement > 0 && !facingRight)
+		{
 			Flip();
+		}
+
 		else if (horizontalMovement < 0 && facingRight)
 		{
 			Flip();
@@ -83,12 +97,27 @@ public class CharacterMovement : MonoBehaviour {
 			jump = false;
 		}
 	}
+
+	private bool flippingRight;
 	
 	void Flip()
 	{
 		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		targetAngle = facingRight ? 0 : 180;
+	}
+
+	bool IsGrounded()
+	{
+		return Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground"))
+			|| Physics2D.Linecast(transform.position, groundCheck2.position, 1 << LayerMask.NameToLayer("Ground"));
+
+	}
+
+	private float currentAngle = 0;
+	private float targetAngle = 0;
+
+	private void RotateToAngle(float degrees)
+	{
+		rb2d.transform.rotation = Quaternion.Euler(0f, degrees, 0f);
 	}
 }
