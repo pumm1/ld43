@@ -6,56 +6,72 @@ using UnityEngine;
 
 public class LimbDropper : MonoBehaviour
 {
-	public Transform head;
-	public List<Transform> hands;
-	public List<Transform> legs;
-
 	public Collider2D headCollider;
 	public Collider2D legsCollider;
 	
-	public void start()
-	{	
-	}
+	public GameObject headToDestroy;
+	public GameObject leftHandToDestroy;
+	public GameObject rightHandToDestroy;
+	public GameObject leftLegToDestroy;
+	public GameObject rightLegToDestroy;
+
+	public GameObject headToInstantiate;
+	public GameObject leftHandToInstantiate;
+	public GameObject rightHandToInstantiate;
+	public GameObject leftLegToInstantiate;
+	public GameObject rightLegToInstantiate;
+//	
 	
 	public void dropHead()
 	{
-		if (head)
+		if (headToDestroy)
 		{
+			dropLimb(headToDestroy, headToInstantiate);
+			headToDestroy = null;
 			headCollider.enabled = false;
-			dropLimb(head);
-			head = null;
 		}
 	}
 	
 	public void dropHand()
 	{
-		dropLimb(hands);		
+		if (leftHandToDestroy)
+		{
+			dropLimb(leftHandToDestroy, leftHandToInstantiate);
+			leftHandToDestroy = null;
+		}
+		else if (rightHandToDestroy)
+		{
+			dropLimb(rightHandToDestroy, rightHandToInstantiate);
+			rightHandToDestroy = null;			
+		}
 	}
 	
 	public void dropLeg()
 	{
-		dropLimb(legs);
-		
-		if (legs.Count <= 0)
-		{	
-			legsCollider.enabled = false;	
+		if (leftLegToDestroy)
+		{
+			dropLimb(leftLegToDestroy, leftLegToInstantiate);
+			leftLegToDestroy = null;
 		}
-	}
-
-	public void dropLimb(List<Transform> limbs)
-	{
-		if (limbs.Count <= 0)
-		{		
-			return;
+		else if (rightLegToDestroy)
+		{
+			dropLimb(rightLegToDestroy, rightLegToInstantiate);
+			rightLegToDestroy = null;
+			legsCollider.enabled = false;
 		}
-
-		var limb = limbs[0]; 
-		dropLimb(limb);
-		
-		limbs.RemoveAt(0);
 	}
 	
-	private void dropLimb(Transform limb)
+	public void dropLimb(GameObject limbToDestroy, GameObject limbToInstantiate)
+	{
+		var droppedLimb = Instantiate(limbToInstantiate, getLevel());
+		droppedLimb.transform.position = limbToDestroy.transform.position;
+
+		droppedLimb.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
+		
+		Destroy(limbToDestroy);
+	}
+	
+	public Transform getLevel()
 	{
 		var levels = GameObject.FindGameObjectsWithTag("Level");
 
@@ -64,10 +80,6 @@ public class LimbDropper : MonoBehaviour
 			throw new Exception("Scene must have exactly one GameObject having tag \"Level\"");
 		}
 
-		var level = levels[0].transform;
-
-		limb.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-		limb.GetComponent<Collider2D>().enabled = true;
-		limb.parent = level;
+		return levels[0].transform;		
 	}
 }
