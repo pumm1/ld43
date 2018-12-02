@@ -10,9 +10,9 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 60119441366520096}
+  - component: {fileID: 60594405284526040}
   m_Layer: 9
-  m_Name: StepsPrototype04x02x02
+  m_Name: RampPrototype04x02x02
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.826383, y: 0.69419587, z: 0.075350046}
+  m_LocalPosition: {x: 16.826384, y: -1.3058041, z: 0.075350046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300002, guid: 900e53dd850c9cc4281be6fa21bdfea5, type: 3}
+  m_Mesh: {fileID: 4300002, guid: b9d7ac1a0f551404f8d32e1e02b64325, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
---- !u!60 &60119441366520096
+--- !u!60 &60594405284526040
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,8 +108,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0000011920931, y: 2.0000017}
-      - {x: -0.9510567, y: 1.3090177}
-      - {x: -0.5877848, y: 0.19098204}
-      - {x: 0.5877874, y: 0.19098216}
-      - {x: 0.95105904, y: 1.3090178}
+    - - {x: 0, y: 2.0000002}
+      - {x: -0.9510568, y: 1.3090171}
+      - {x: -0.5877853, y: 0.19098276}
+      - {x: 0.5877855, y: 0.19098288}
+      - {x: 0.9510567, y: 1.3090172}

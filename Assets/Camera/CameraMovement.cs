@@ -17,6 +17,7 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		
 		var targetCameraPosition = new Vector3(
 			followedRigidBody.position.x + followedRigidBody.velocity.x*2f, 
 			followedRigidBody.position.y + 4f, 
