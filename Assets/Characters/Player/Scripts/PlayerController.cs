@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		var shouldPlayWalkAnim = Mathf.Abs(h) > Mathf.Epsilon;	                     
-		//robotAnimator.SetBool("shouldWalk", shouldPlayWalkAnim);                 
+		robotAnimator.SetBool("shouldWalk", shouldPlayWalkAnim);                 
 		
 		characterMovement.horizontalMovement = h;
 		
